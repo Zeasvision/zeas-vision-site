@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZEAS VISION | Consultoría Impositiva & Contable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-100: #0f2a46;
+      --primary-80: #1b3b5e;
+      --primary-60: #274b75;
+      --accent: #11c3d0;
+      --light: #ffffff;
+      --grey-100: #f5f7fa;
+      --grey-60: #d9dce1;
+      --text-dark: #1d1e20;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--text-dark);
+      background-color: var(--grey-100);
+    }
+
+    /* ---------- Navigation ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 42, 70, 0.9);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-60));
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--light);
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 5rem 1rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary-80);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      color: var(--primary-80);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Why Us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .why-grid div {
+      padding: 2rem 1.5rem;
+      background: var(--light);
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s;
+    }
+
+    .why-grid div:hover {
+      transform: translateY(-6px);
+    }
+
+    .why-grid h3 {
+      margin-bottom: 0.7rem;
+      color: var(--primary-80);
+    }
+
+    /* Contact */
+    .contact-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      line-height: 2;
+    }
+
+    .contact-info a {
+      color: var(--primary-80);
+      text-decoration: none;
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--grey-60);
+      border-radius: 6px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--primary-100);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Scroll reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .revealed {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <img src="logo-zeas.jpg" alt="Logo Zeas Vision" />
+    <nav>
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#porque">¿Por qué ZEAS?</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Tu tranquilidad fiscal empieza con una gestión inteligente</h1>
+      <p>Somos tu socio estratégico en impuestos, contabilidad y finanzas. Acompañamos el crecimiento de tu empresa con soluciones a medida y tecnología de punta.</p>
+      <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicitar consulta gratuita</button>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" data-reveal>
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Asesoría Impositiva</h3>
+        <p>Cumplimiento normativo, planeamiento fiscal y presentación de todas las declaraciones de impuestos en Argentina.</p>
+      </div>
+      <div class="service-card">
+        <h3>Contabilidad & Reporting</h3>
+        <p>Registración contable, estados financieros y dashboards que convierten tus datos en decisiones ágiles.</p>
+      </div>
+      <div class="service-card">
+        <h3>Proyecciones & Cash Flow</h3>
+        <p>Pronósticos de ingresos y egresos, escenarios y alertas para optimizar la liquidez de tu empresa.</p>
+      </div>
+      <div class="service-card">
+        <h3>Sueldos & Cargas Sociales</h3>
+        <p>Liquidación de haberes, gestión sindical y determinación de cargas sociales sin estrés.</p>
+      </div>
+      <div class="service-card">
+        <h3>Auditoría & Control</h3>
+        <p>Revisiones periódicas que garantizan transparencia y reducen riesgos operativos.</p>
+      </div>
+      <div class="service-card">
+        <h3>Automatización & IA</h3>
+        <p>Implementamos soluciones de inteligencia artificial y RPA para acelerar tus procesos fiscales y contables.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="porque" data-reveal>
+    <h2>¿Por qué elegir ZEAS VISION?</h2>
+    <div class="why-grid">
+      <div>
+        <h3>Especialistas en PYMES</h3>
+        <p>Conocemos los desafíos de los negocios en crecimiento y hablamos tu mismo idioma.</p>
+      </div>
+      <div>
+        <h3>Soluciones Personalizadas</h3>
+        <p>No forzamos plantillas genéricas: diseñamos procesos que se adaptan a tu estructura.</p>
+      </div>
+      <div>
+        <h3>Tecnología de Vanguardia</h3>
+        <p>Integramos IA y automatización para que inviertas tu tiempo donde más importa.</p>
+      </div>
+      <div>
+        <h3>Acompañamiento Cercano</h3>
+        <p>Contacto directo con consultores senior y reportes claros que facilitan cada decisión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" data-reveal>
+    <h2>Contacto</h2>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <ul>
+          <li><strong>Teléfono:</strong> <a href="tel:+541556970901">(+54) 9 11 5697‑0901</a></li>
+          <li><strong>Email:</strong> <a href="mailto:consultora@zeasvisio.com">consultora@zeasvisio.com</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/zeas-vision" target="_blank" rel="noopener">ZEAS VISION</a></li>
+        </ul>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <input type="text" id="name" name="name" placeholder="Nombre" required />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+          <textarea id="message" name="message" placeholder="Cuéntanos tu necesidad…" rows="4" required></textarea>
+          <button type="submit" class="btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> ZEAS VISION · Consultoría Impositiva, Contable y Financiera
+  </footer>
+
+  <script>
+    // Dynamic year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple scroll reveal effect
+    const options = { threshold: 0.2 };
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    document.querySelectorAll("[data-reveal]").forEach((el) => revealObserver.observe(el));
+
+    // Basic contact form validation (front-end)
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+
+      // Replace with your preferred backend / service
+      const mailto = `mailto:consultora@zeasvisio.com?subject=Consulta%20desde%20la%20web&body=Nombre:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMensaje:%20${encodeURIComponent(message)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
